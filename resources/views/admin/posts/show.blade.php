@@ -14,6 +14,16 @@
             Titolo: {{ $post->title_post }}
          </h3>
 
+         @if ($post->category)
+            <h4>
+               {{$post->category->name}}
+            </h4>
+         @else
+            <h5 style="color: red">
+               Nessuna categoria
+            </h5>
+         @endif
+
          {{-- contenuto del post --}}
          <p class="my-3">
             Contenuto: {{$post->content}}
