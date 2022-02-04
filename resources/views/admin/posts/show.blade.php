@@ -16,7 +16,7 @@
 
          @if ($post->category)
             <h4>
-               {{$post->category->name}}
+               Categoria: {{$post->category->name}}
             </h4>
          @else
             <h5 style="color: red">

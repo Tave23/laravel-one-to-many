@@ -53,6 +53,19 @@
               @enderror
             </div>
 
+            <div class="mb-3">
+               <select name="category_id" id="category_id" class="form-control" aria-label="Default select example">
+                  <option selected>Seleziona la categoria</option>
+                  @foreach ($categoryList as $category)
+                  <option value="{{ $category->id }}" @if ($category->id == old('category_id')) selected @endif>
+                     {{ $category->name }}
+                  </option>
+                  @endforeach
+                  
+                  
+               </select>
+            </div>
+
             {{-- bottoni salva e reset --}}
             <button type="submit" class="btn btn-success">Salva Post</button>
             <button type="reset" class="btn btn-danger">Reset Post</button>
