@@ -20,6 +20,7 @@
                   <th scope="col">Titolo del post</th>
                   <th scope="col">Contenuto del post</th>
                   <th scope="col">Slug</th>
+                  <th scope="col">Categoria</th>
                   <th scope="col" colspan="3"></th>
                </tr>
                </thead>
@@ -33,6 +34,13 @@
                      <td>{{ $post->title_post }}</td>
                      <td>{{ $post->content }}</td>
                      <td>{{ $post->slug }}</td>
+                     {{-- nome della categoria che va gestito con IF --}}
+                     @if ($post->category)
+                        <td>{{ $post->category->name }}</td>
+                     @else
+                        <td>Categoria mancante</td>
+                     @endif
+                     
                      <td>
                         <a href="{{ route('admin.posts.show', $post) }}" type="button" class="btn btn-success ">
                            Show
