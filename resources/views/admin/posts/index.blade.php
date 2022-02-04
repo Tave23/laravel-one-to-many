@@ -72,6 +72,26 @@
             </table>
            
             {{$posts->links()}}
+
+               
+            @foreach ($categoryList as $category)
+            <h3 class="my-4">
+               {{ $category->name }}
+            </h3>
+
+            <ul class="my-4 mr-5">
+               @foreach ($category->posts as $post_category)
+
+                  <li>
+                     <a href="{{ route('admin.posts.show', $post_category) }}">{{ $post_category->title_post }}</a>
+                  </li>
+
+               @endforeach
+            </ul>
+
+            @endforeach
+
+
       </div>
 </div>
 @endsection

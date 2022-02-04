@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
@@ -19,9 +20,11 @@ class PostsController extends Controller
         // per prendere i dati dello user
         $loggedUser = Auth::user();
 
+        $categoryList = Category::all(); 
+
         $posts = Post::orderBy('id','desc')->paginate(5);
 
-        return view('admin.posts.index', compact('posts', 'loggedUser'));
+        return view('admin.posts.index', compact('posts', 'loggedUser', 'categoryList'));
     }
 
     /**
